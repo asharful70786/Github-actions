@@ -10,5 +10,8 @@ jobs :
         run : ls
       -  name : make file
          run : touch app.js 
+      - name : device details 
+        run : sudo dmidecode -t memory
+
 
 
