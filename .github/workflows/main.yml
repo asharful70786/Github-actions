@@ -4,9 +4,13 @@ jobs:
   git-security-notice :
     runs-on : ubuntu-latest
     steps:
+      - name : node version
+        run : node -v
       - name : checkout
-        run : pwd
-      - name : checkout  
-        uses : actions/checkout@v6
-      - name : print
-        run : pwd   
+        uses : actions/checkout@v4
+        with : 
+          node-version : "24"
+          
+      - name : node v check again 
+        run : node -v    
+
