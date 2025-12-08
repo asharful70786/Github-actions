@@ -1,22 +1,12 @@
-name : notice git security
-on : [push , workflow_dispatch]
+name : github-workflow
+on : [push, workflow_dispatch]
 jobs:
-  git-security-notice :
-    env:
-     EC2_HOST: "my-server.com"
-     EC2_USER: ubuntu
+  test-my-job:
+    env : 
+      git-secret : "this is my secret key"
     runs-on : ubuntu-latest
     steps:
-      - name : node version
-        run : node -v
-      - name : checkout
-        uses : actions/checkout@v4
-        with : 
-          node-version : "24"
-      - name : context-check
-        run : echo "${{toJson(github) }}"   
-      - run : echo ${{toJson(env.EC2_USER) }}   
-          
-      - name : node v check again 
-        run : node -v    
-
+      - run : touch my-file
+      - uses : actions/checkout@v2
+      - run : echo "${{toJson(env)}}"
+      - run : echo "${{secrets}}" 
