@@ -11,7 +11,7 @@ jobs:
         with : 
           node-version : "24"
       - name : context-check
-        run : echo ${{toJson(github) }}    
+        run : echo "${{toJson(github) }}"   
       - run : echo ${{3  <  2}}   
           
       - name : node v check again 
