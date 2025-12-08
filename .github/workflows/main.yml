@@ -1,7 +1,10 @@
-name : notice git chage
+name : notice git security
 on : [push , workflow_dispatch]
 jobs:
   git-security-notice :
+    env:
+     EC2_HOST: "my-server.com"
+     EC2_USER: ubuntu
     runs-on : ubuntu-latest
     steps:
       - name : node version
@@ -12,7 +15,7 @@ jobs:
           node-version : "24"
       - name : context-check
         run : echo "${{toJson(github) }}"   
-      - run : echo ${{3  <  2}}   
+      - run : echo ${{toJson(env.EC2_USER) }}   
           
       - name : node v check again 
         run : node -v    
