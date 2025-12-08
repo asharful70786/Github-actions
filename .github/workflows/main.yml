@@ -6,7 +6,5 @@ jobs:
       git-secret : "this is my secret key"
     runs-on : ubuntu-latest
     steps:
-      - run : touch my-file
-      - uses : actions/checkout@v2
-      - run : echo "${{toJson(env)}}"
-      - run : echo "${{toJson(secrets)}}" 
+      - run : echo ${{ github.token }}
+      - run  : echo${{secrets}}
