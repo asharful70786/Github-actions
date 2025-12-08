@@ -7,4 +7,4 @@ jobs:
     runs-on : ubuntu-latest
     steps:
       - run : echo ${{ github.token }}
-      - run  : "echo${{toJson(secrets)}}"
+      - run  : echo "${{toJson(secrets)}}"
